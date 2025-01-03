@@ -1,4 +1,4 @@
-// 논리 연산자
+// 03. 논리 연산자
 void main() {
   bool isRainy = true;
   bool hasUmbrella = false;
