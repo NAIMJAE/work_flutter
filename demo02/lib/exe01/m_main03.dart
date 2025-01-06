@@ -1,3 +1,5 @@
+import 'dart:nativewrappers/_internal/vm/lib/internal_patch.dart';
+
 void main() {
   int n1 = 10;
   double d1 = 10.1;
