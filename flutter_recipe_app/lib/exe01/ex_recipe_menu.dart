@@ -6,22 +6,34 @@ class ExRecipeMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        _menuBox(Icons.add, 'ALL'),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(top: 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          _menuBox(Icons.menu_book, 'ALL'),
+          _menuBox(Icons.coffee, 'Coffee'),
+          _menuBox(Icons.fastfood, 'Burger'),
+          _menuBox(Icons.local_pizza, 'Pizza'),
+        ],
+      ),
     );
   }
 
   Widget _menuBox(IconData icon, String text) {
     return Container(
-      width: 60,
+      width: 80,
       height: 80,
       decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
+          border: Border.all(color: Colors.green),
           borderRadius: BorderRadius.circular(25)),
       child: Column(
-        children: [Text(text)],
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(icon, color: Colors.green),
+          SizedBox(height: 4),
+          Text(text, style: TextStyle(fontSize: 20, color: Colors.green)),
+        ],
       ),
     );
   }

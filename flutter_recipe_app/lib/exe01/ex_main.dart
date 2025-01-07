@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_recipe_app/exe01/ex_list_item.dart';
+import 'package:flutter_recipe_app/exe01/ex_recipe_menu.dart';
 import 'package:flutter_recipe_app/exe01/ex_recipe_title.dart';
 
 void main() {
@@ -32,10 +34,17 @@ class RecipePage extends StatelessWidget {
           Icon(CupertinoIcons.heart, color: Colors.red),
         ],
       ),
-      body: Column(
-        children: [
-          ExRecipeTitle(),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        child: ListView(
+          children: [
+            ExRecipeTitle(),
+            ExRecipeMenu(),
+            ExListItem('coffee', 'Coffee'),
+            ExListItem('burger', 'Burger'),
+            ExListItem('pizza', 'Pizza'),
+          ],
+        ),
       ),
     );
   }
