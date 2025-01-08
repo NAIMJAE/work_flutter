@@ -24,10 +24,9 @@ class RecipeListItem extends StatelessWidget {
             ),
           ),
           SizedBox(height: 10),
-          // 텍스트1
+          // 텍스트
           Text(imageTitle, style: TextStyle(fontSize: 20)),
           Text('Have you ever......'),
-          // 텍스트2
         ],
       ),
     );
