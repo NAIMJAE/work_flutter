@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_profile_app/profile_header.dart';
+import 'package:flutter_profile_app/components/profile_header.dart';
 import 'package:flutter_profile_app/theme.dart';
 
 void main() {
