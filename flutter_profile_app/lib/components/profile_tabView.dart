@@ -104,9 +104,16 @@ class _ProfileTabState extends State<ProfileTab>
       // 중간 매개체로 연결
       controller: _tabController,
       tabs: [
-        Tab(icon: Icon(Icons.article_outlined)),
-        Tab(icon: Icon(Icons.play_circle_outline_outlined)),
+        Tab(
+          icon: Icon(Icons.article_outlined),
+          text: "게시글",
+        ),
+        Tab(
+          icon: Icon(Icons.play_circle_outline_outlined),
+          text: "영상",
+        ),
       ],
+      labelColor: Colors.orange,
     );
   }
 }
