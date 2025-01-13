@@ -9,6 +9,7 @@ class THomePage extends StatelessWidget {
       child: Scaffold(
         body: Column(
           children: [
+            SizedBox(height: 30),
             Text('홈페이지', style: TextStyle(fontSize: 30)),
             TextButton(
               onPressed: () {
