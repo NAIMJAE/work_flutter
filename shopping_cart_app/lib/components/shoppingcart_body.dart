@@ -47,7 +47,7 @@ class ShoppingcartBody extends StatelessWidget {
             fontSize: 30,
             fontWeight: FontWeight.bold,
           ),
-        ),
+        )
       ],
     );
   }

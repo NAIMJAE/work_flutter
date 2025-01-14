@@ -16,6 +16,7 @@ class TLoginPage extends StatelessWidget {
       child: Scaffold(
         body: Column(
           children: [
+            SizedBox(height: 30),
             Text('로그인 페이지', style: TextStyle(fontSize: 30)),
             Form(
               key: _formKey,
@@ -36,6 +37,7 @@ class TLoginPage extends StatelessWidget {
                       _email = value ?? '';
                     },
                   ),
+                  SizedBox(height: 20),
                   TextFormField(
                     decoration: InputDecoration(
                       label: Text('password'),
