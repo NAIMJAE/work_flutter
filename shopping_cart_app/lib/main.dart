@@ -35,7 +35,7 @@ class ShoppingCartPage extends StatelessWidget {
             ShoppingcartHeader(),
 
             // 디테일
-            ShoppingcartBody(),
+            Expanded(child: ShoppingcartBody()),
           ],
         ),
       ),
