@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_airbnb/constants.dart';
+import 'package:flutter_airbnb/size.dart';
+import 'package:flutter_airbnb/styles.dart';
 
 class HomeHeaderAppbar extends StatelessWidget {
   const HomeHeaderAppbar({super.key});
@@ -7,31 +10,36 @@ class HomeHeaderAppbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(gap_m),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Icon(CupertinoIcons.heart, color: Colors.red, size: 20),
-              const SizedBox(width: 4),
-              Text(
-                'RoomOfAll',
-                style: TextStyle(color: Colors.white),
-              ),
-            ],
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text('회원가입', style: TextStyle(color: Colors.white, fontSize: 12)),
-              const SizedBox(width: 10),
-              Text('로그인', style: TextStyle(color: Colors.white, fontSize: 12)),
-            ],
-          )
+          _buildAppBarLogo(),
+          Spacer(),
+          _buildAppBarMenu(),
         ],
       ),
+    );
+  }
+
+  Widget _buildAppBarLogo() {
+    return Row(
+      children: [
+        Image.asset('assets/images/logo.png',
+            width: 30, height: 30, color: kAccentColor),
+        const SizedBox(width: gap_s),
+        Text('RoomOfAll', style: h5(mColor: Colors.white)),
+      ],
+    );
+  }
+
+  Widget _buildAppBarMenu() {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Text('회원가입', style: subtitle1(mColor: Colors.white)),
+        const SizedBox(width: gap_m),
+        Text('로그인', style: subtitle1(mColor: Colors.white)),
+      ],
     );
   }
 }

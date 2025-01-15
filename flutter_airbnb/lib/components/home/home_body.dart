@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_airbnb/components/home/home_body_banner.dart';
+import 'package:flutter_airbnb/components/home/home_body_popular.dart';
+import 'package:flutter_airbnb/components/home/home_body_popular_item.dart';
 import 'package:flutter_airbnb/size.dart';
 
 class HomeBody extends StatelessWidget {
@@ -13,7 +16,8 @@ class HomeBody extends StatelessWidget {
         width: bodyWidth,
         child: Column(
           children: [
-            Text('data'),
+            HomeBodyBanner(),
+            HomeBodyPopular(),
           ],
         ),
       ),

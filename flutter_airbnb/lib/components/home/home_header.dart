@@ -15,6 +15,7 @@ class HomeHeader extends StatelessWidget {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/images/background.jpeg'),
+            fit: BoxFit.cover,
           ),
         ),
         child: Column(
