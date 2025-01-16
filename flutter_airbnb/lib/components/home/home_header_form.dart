@@ -43,10 +43,12 @@ class HomeHeaderForm extends StatelessWidget {
     return Column(
       children: [
         Text('모두의 숙소에서 숙소를 검색하세요.', style: h4()),
+        const SizedBox(height: gap_xs),
         Text(
           '혼자하는 여행에 적합한 개인실부터 여럿이 함께하는 여정에서 좋은 공간전체 숙소까지, 모두의 숙소에 다 있습니다.',
-          style: subtitle1(),
+          style: body1(),
         ),
+        const SizedBox(height: gap_m),
       ],
     );
   }
@@ -56,17 +58,43 @@ class HomeHeaderForm extends StatelessWidget {
     return Column(
       children: [
         CommonFormField(prefixText: '위치', hintText: '근처 추천 장소'),
+        const SizedBox(height: gap_s),
+        Row(
+          children: [
+            Expanded(
+                child: CommonFormField(prefixText: '체크인', hintText: '날짜 입력')),
+            const SizedBox(width: gap_s),
+            Expanded(
+                child: CommonFormField(prefixText: '체크아웃', hintText: '날짜 입력')),
+          ],
+        ),
+        const SizedBox(height: gap_s),
+        Row(
+          children: [
+            Expanded(child: CommonFormField(prefixText: '성인', hintText: '1')),
+            const SizedBox(width: gap_s),
+            Expanded(child: CommonFormField(prefixText: '어린이', hintText: '0')),
+          ],
+        ),
+        const SizedBox(height: gap_m),
       ],
     );
   }
 
   Widget _buildFormSubmit() {
-    return FilledButton(
-      style: ButtonStyle(
-        backgroundColor: WidgetStatePropertyAll(kAccentColor),
+    return SizedBox(
+      width: double.infinity,
+      height: 50,
+      child: TextButton(
+        style: TextButton.styleFrom(
+          backgroundColor: kAccentColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+        ),
+        onPressed: () => print('검색 버튼 클릭!'),
+        child: Text('검색', style: subtitle1(mColor: Colors.white)),
       ),
-      onPressed: () {},
-      child: Text('data'),
     );
   }
 }

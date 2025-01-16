@@ -27,7 +27,7 @@ class HomeBodyPopularItem extends StatelessWidget {
           child: Column(
             children: [
               _buildPopularItemImage(),
-              _buildPopularItemStart(),
+              _buildPopularItemStar(),
               _buildPopularItemComment(),
               _buildPopularItemUserInfo(),
             ],
@@ -38,10 +38,13 @@ class HomeBodyPopularItem extends StatelessWidget {
   }
 
   Widget _buildPopularItemImage() {
-    return Image.asset('assets/images/p1.jpeg');
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(10),
+      child: Image.asset('assets/images/p1.jpeg'),
+    );
   }
 
-  Widget _buildPopularItemStart() {
+  Widget _buildPopularItemStar() {
     return Container();
   }
 
