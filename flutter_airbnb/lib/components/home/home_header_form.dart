@@ -9,13 +9,18 @@ class HomeHeaderForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Flutter는 화면의 크기가 변할때 위젯들을 새로 랜더링 하므루 Stateless지만 정렬이 변함 (ex.가로모드 전환)
+    // MediaQuery를 이용해 현재 화면의 너비 반환
+    double screenWidth = MediaQuery.of(context).size.width;
     return Padding(
       padding: EdgeInsets.only(top: gap_m),
       child: Align(
         // Align
         // - 가로와 세로를 좌표 형태로 지정해 정렬하는 위젯
         // - (-1.0 ~ 1.0) 사이의 값으로 표현, 기준은 부모 위젯
-        alignment: const Alignment(-0.6, 0),
+        alignment: screenWidth < 520
+            ? const Alignment(0, 0)
+            : const Alignment(-0.6, 0),
         child: Container(
           width: 420,
           decoration: BoxDecoration(
@@ -48,7 +53,7 @@ class HomeHeaderForm extends StatelessWidget {
           '혼자하는 여행에 적합한 개인실부터 여럿이 함께하는 여정에서 좋은 공간전체 숙소까지, 모두의 숙소에 다 있습니다.',
           style: body1(),
         ),
-        const SizedBox(height: gap_m),
+        const SizedBox(height: gap_xs),
       ],
     );
   }
@@ -76,7 +81,7 @@ class HomeHeaderForm extends StatelessWidget {
             Expanded(child: CommonFormField(prefixText: '어린이', hintText: '0')),
           ],
         ),
-        const SizedBox(height: gap_m),
+        const SizedBox(height: gap_s),
       ],
     );
   }

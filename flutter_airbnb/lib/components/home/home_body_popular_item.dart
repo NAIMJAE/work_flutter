@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_airbnb/constants.dart';
 import 'package:flutter_airbnb/size.dart';
+import 'package:flutter_airbnb/styles.dart';
 
 class HomeBodyPopularItem extends StatelessWidget {
   final id;
@@ -27,7 +29,7 @@ class HomeBodyPopularItem extends StatelessWidget {
           child: Column(
             children: [
               _buildPopularItemImage(),
-              _buildPopularItemStar(),
+              _buildPopularItemStar(5),
               _buildPopularItemComment(),
               _buildPopularItemUserInfo(),
             ],
@@ -40,19 +42,52 @@ class HomeBodyPopularItem extends StatelessWidget {
   Widget _buildPopularItemImage() {
     return ClipRRect(
       borderRadius: BorderRadius.circular(10),
-      child: Image.asset('assets/images/p1.jpeg'),
+      child: Image.asset('assets/images/p1.jpeg', fit: BoxFit.cover),
     );
   }
 
-  Widget _buildPopularItemStar() {
-    return Container();
+  Widget _buildPopularItemStar(count) {
+    return Column(
+      children: [
+        Row(
+          children: [
+            ...List.generate(
+                count, (index) => Icon(Icons.star, color: kAccentColor))
+          ],
+        ),
+        const SizedBox(height: gap_s),
+      ],
+    );
   }
 
   Widget _buildPopularItemComment() {
-    return Container();
+    return Column(
+      children: [
+        Text(
+          '깔끔하고 다 갖춰져있어서 좋았어요:) 위치도 완전 좋아용 다들 여기 살고싶다구 ㅋㅋㅋㅋㅋㅋㅋ화장실도 3개에요!!! 5명이서 씻는 것도 전혀 불편함없이 좋았어요~ 이불도 포근하고 좋습니다.ㅎㅎ',
+          maxLines: 3,
+          overflow: TextOverflow.ellipsis,
+        ),
+        const SizedBox(height: gap_s),
+      ],
+    );
   }
 
   Widget _buildPopularItemUserInfo() {
-    return Container();
+    return Row(
+      children: [
+        CircleAvatar(
+          backgroundImage: AssetImage('assets/images/p1.jpeg'),
+        ),
+        const SizedBox(width: gap_s),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('홍길동', style: subtitle1()),
+            Text('한국'),
+          ],
+        )
+      ],
+    );
   }
 }
