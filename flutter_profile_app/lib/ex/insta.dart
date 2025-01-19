@@ -14,7 +14,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: MainPage(),
-      theme: ex_theme(),
+      theme: ThemeData(
+        // 기본 테마 설정
+        textTheme: TextTheme(
+          bodyLarge: TextStyle(color: Colors.red), // 본문 텍스트 (큰 크기)
+          bodyMedium: TextStyle(color: Colors.red), // 본문 텍스트 (중간 크기)
+          bodySmall: TextStyle(color: Colors.red), // 본문 텍스트 (작은 크기)
+          headlineLarge: TextStyle(color: Colors.red), // 헤드라인 텍스트
+          titleMedium: TextStyle(color: Colors.red), // 제목 텍스트
+          labelLarge: TextStyle(color: Colors.red), // 라벨 텍스트
+        ),
+      ),
     );
   }
 }
@@ -30,7 +40,6 @@ class MainPage extends StatelessWidget {
           backgroundColor: Colors.black,
           title: Text(
             'Instagram',
-            style: TextStyle(color: Colors.white),
           ),
           actions: [
             Icon(CupertinoIcons.heart),
@@ -174,12 +183,12 @@ class ArticleList extends StatelessWidget {
                               children: [
                                 Text(item.name,
                                     style: TextStyle(
-                                        color: Colors.white,
                                         fontWeight: FontWeight.bold,
                                         fontSize: 16)),
                                 Text('회원님을 위한 추천',
                                     style: TextStyle(
-                                        color: Colors.white, fontSize: 12)),
+                                      fontSize: 12,
+                                    )),
                               ],
                             ),
                           ],
@@ -193,7 +202,6 @@ class ArticleList extends StatelessWidget {
                               onPressed: () {},
                               child: Text(
                                 '팔로우',
-                                style: TextStyle(color: Colors.white),
                               ),
                             ),
                             SizedBox(width: 20),
@@ -217,20 +225,26 @@ class ArticleList extends StatelessWidget {
                               children: [
                                 Row(
                                   children: [
-                                    Icon(CupertinoIcons.heart,
-                                        color: Colors.white, size: 24),
-                                    Text('666',
-                                        style: TextStyle(color: Colors.white)),
+                                    Icon(
+                                      CupertinoIcons.heart,
+                                      color: Colors.white,
+                                      size: 24,
+                                    ),
+                                    Text(
+                                      '666',
+                                    ),
                                     SizedBox(width: 12),
                                     Icon(CupertinoIcons.chat_bubble,
                                         color: Colors.white, size: 24),
-                                    Text('666',
-                                        style: TextStyle(color: Colors.white)),
+                                    Text(
+                                      '666',
+                                    ),
                                     SizedBox(width: 12),
                                     Icon(CupertinoIcons.paperplane,
                                         color: Colors.white, size: 24),
-                                    Text('666',
-                                        style: TextStyle(color: Colors.white)),
+                                    Text(
+                                      '666',
+                                    ),
                                     SizedBox(width: 12),
                                   ],
                                 ),
