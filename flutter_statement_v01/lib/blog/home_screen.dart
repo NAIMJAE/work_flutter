@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_statement_v01/blog/book.dart';
 import 'package:flutter_statement_v01/blog/cart_page.dart';
 import 'package:flutter_statement_v01/blog/list_page.dart';
 
@@ -12,9 +13,15 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int pageIndex = 0;
 
-  void _selectedIndex(index) {
+  List<Book> mySelectedBook = [];
+
+  void _selectedBook(Book book) {
     setState(() {
-      pageIndex = index;
+      if (mySelectedBook.contains(book)) {
+        mySelectedBook.remove(book);
+      } else {
+        mySelectedBook.add(book);
+      }
     });
   }
 
@@ -26,18 +33,30 @@ class _HomeScreenState extends State<HomeScreen> {
         body: IndexedStack(
           index: pageIndex,
           children: [
-            ListPage(),
+            ListPage(
+              onSelectedBook: _selectedBook,
+              selectedBook: mySelectedBook,
+            ),
             CartPage(),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: pageIndex,
           items: [
-            BottomNavigationBarItem(icon: Icon(Icons.list), label: 'list'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.shopping_cart), label: 'cart'),
+              icon: Icon(Icons.list),
+              label: 'list',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_cart),
+              label: 'cart',
+            ),
           ],
-          onTap: _selectedIndex,
+          onTap: (index) {
+            setState(() {
+              pageIndex = index;
+            });
+          },
         ),
       ),
     );
